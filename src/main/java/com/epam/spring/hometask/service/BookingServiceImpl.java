@@ -16,12 +16,10 @@ import java.util.Set;
 
 public class BookingServiceImpl implements BookingService {
     private DiscountService discountService;
-    private EventService eventService;
     private TicketRepository ticketRepository;
 
-    public BookingServiceImpl(DiscountService discountService, EventService eventService, TicketRepository ticketRepository) {
+    public BookingServiceImpl(DiscountService discountService, TicketRepository ticketRepository) {
         this.discountService = discountService;
-        this.eventService = eventService;
         this.ticketRepository = ticketRepository;
     }
 

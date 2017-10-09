@@ -22,7 +22,6 @@
 
     <bean id="bookingService" class="com.epam.spring.hometask.service.BookingServiceImpl">
         <constructor-arg name="discountService" ref="discountService"/>
-        <constructor-arg name="eventService" ref="eventService"/>
         <constructor-arg name="ticketRepository" ref="ticketRepository"/>
     </bean>
 

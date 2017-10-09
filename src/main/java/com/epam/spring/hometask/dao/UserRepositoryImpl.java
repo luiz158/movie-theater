@@ -11,6 +11,10 @@ public class UserRepositoryImpl implements UserRepository {
 
     private static Map<Long, User> userMap = new HashMap<>();
 
+    public static Map<Long, User> getUserMap() {
+        return userMap;
+    }
+
     @Override
     public User save(@Nonnull User user) {
         userMap.put(user.getId(), user);

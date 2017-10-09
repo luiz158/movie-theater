@@ -9,19 +9,21 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:spring.xml")
-public class AuditoriumServiceImplTest {
-
-
+public class BookingServiceImplTest {
     @Before
     public void setUp() throws Exception {
     }
 
     @Test
-    public void getAll() throws Exception {
+    public void getTicketsPrice() throws Exception {
     }
 
     @Test
-    public void getByName() throws Exception {
+    public void bookTickets() throws Exception {
+    }
+
+    @Test
+    public void getPurchasedTicketsForEvent() throws Exception {
     }
 
 }
