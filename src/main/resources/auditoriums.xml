@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <util:properties id="auditorium-big-props" location="auditorium-big.properties"/>
+    <util:properties id="auditorium-medium-props" location="auditorium-medium.properties"/>
+    <util:properties id="auditorium-small-props" location="auditorium-small.properties"/>
+
+    <bean id="big-auditorium" class="com.epam.spring.hometask.domain.Auditorium">
+        <constructor-arg name="name" value="#{auditorium-big-props['name']}"/>
+        <constructor-arg name="numberOfSeats" value="#{auditorium-big-props['seats']}"/>
+        <constructor-arg name="vipSeats" value="#{auditorium-big-props['vip-seats'].split(',')}"/>
+    </bean>
+
+    <bean id="medium-auditorium" class="com.epam.spring.hometask.domain.Auditorium">
+        <constructor-arg name="name" value="#{auditorium-medium-props['name']}"/>
+        <constructor-arg name="numberOfSeats" value="#{auditorium-medium-props['seats']}"/>
+        <constructor-arg name="vipSeats" value="#{auditorium-medium-props['vip-seats'].split(',')}"/>
+    </bean>
+
+    <bean id="small-auditorium" class="com.epam.spring.hometask.domain.Auditorium">
+        <constructor-arg name="name" value="#{auditorium-small-props['name']}"/>
+        <constructor-arg name="numberOfSeats" value="#{auditorium-small-props['seats']}"/>
+        <constructor-arg name="vipSeats" value="#{auditorium-small-props['vip-seats'].split(',')}"/>
+    </bean>
+
+</beans>

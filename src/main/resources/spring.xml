@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="auditoriums.xml"/>
+    <import resource="discount.xml"/>
+
+    <bean id="eventRepository" class="com.epam.spring.hometask.dao.EventRepositoryImpl"/>
+    <bean id="userRepository" class="com.epam.spring.hometask.dao.UserRepositoryImpl"/>
+    <bean id="ticketRepository" class="com.epam.spring.hometask.dao.TicketRepositoryImpl"/>
+
+    <bean id="auditoriumService" class="com.epam.spring.hometask.service.AuditoriumServiceImpl">
+        <constructor-arg name="auditoriumSet">
+            <set>
+                <ref bean="big-auditorium"/>
+                <ref bean="medium-auditorium"/>
+                <ref bean="small-auditorium"/>
+            </set>
+        </constructor-arg>
+    </bean>
+
+    <bean id="bookingService" class="com.epam.spring.hometask.service.BookingServiceImpl">
+        <constructor-arg name="discountService" ref="discountService"/>
+        <constructor-arg name="eventService" ref="eventService"/>
+        <constructor-arg name="ticketRepository" ref="ticketRepository"/>
+    </bean>
+
+    <bean id="eventService" class="com.epam.spring.hometask.service.EventServiceImpl">
+        <constructor-arg ref="eventRepository"/>
+    </bean>
+    <bean id="userService" class="com.epam.spring.hometask.service.UserServiceImpl">
+        <constructor-arg ref="userRepository"/>
+    </bean>
+
+    <bean id="app" class="com.epam.spring.hometask.App"/>
+
+</beans>
